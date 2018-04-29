@@ -1,0 +1,11 @@
+#! /bin/bash
+
+for num in {1..3};
+do
+	dd if=/dev/zero of=/dev/file$num.img bs=1k count=50000
+	losetup /dev/loop$num /dev/file$num.img
+done
+
+
+
+
