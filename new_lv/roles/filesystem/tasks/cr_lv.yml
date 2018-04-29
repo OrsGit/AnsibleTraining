@@ -1,0 +1,10 @@
+---
+- name: "Configure the LVs"
+  lvol:
+    state: present
+    vg: "{{ item.0.vg_name }}"
+    lv: "{{ item.1.lv_name }}"
+    size: "{{ item.1.size }}"
+  with_subelements: 
+    - "{{ filesystem_create_lvs }}"
+    - "lvs"

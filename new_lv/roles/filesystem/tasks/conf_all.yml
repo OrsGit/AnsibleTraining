@@ -1,0 +1,6 @@
+---
+- name: "Create the VG"
+  include_tasks: "conf_vg_lv_fs.yml"
+
+- name: "Mount the directory"
+  include_tasks: "mount_fs.yml"

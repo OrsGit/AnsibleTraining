@@ -1,0 +1,19 @@
+---
+- name: "Creates the directory and validates it in case it doesnt exit"
+  file:
+    state: directory
+    path: "{{ item.1.mount_point }}"
+  with_subelements:
+    - "{{ filesystem_create_lvs }}"
+    - "lvs"
+
+- name: "Mounts the directory"
+  mount:
+    state: mounted
+    src: "/dev/{{ item.0.vg_name }}/{{ item.1.lv_name }}"
+    path: "{{ item.1.mount_point }}"
+    fstype: "{{ item.1.file_system }}"
+  with_subelements:
+    - "{{ filesystem_create_lvs }}"
+    - "lvs"
+

@@ -1,0 +1,7 @@
+---
+- name: "Configure the VG"
+  lvg:
+    state: present
+    vg: "{{ item.vg_name }}"
+    pvs: "{{ item.disks }}"
+  with_items: "{{ filesystem_create_lvs }}"

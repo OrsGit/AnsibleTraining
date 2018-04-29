@@ -1,0 +1,6 @@
+---
+- name: "Configure the LVs and VGs"
+  include_tasks: "conf_vg_lv.yml"
+
+- name: "Create a filesystem on the LV"
+  include_tasks: "mk_fs.yml"

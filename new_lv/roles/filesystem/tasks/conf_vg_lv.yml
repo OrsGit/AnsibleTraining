@@ -1,0 +1,6 @@
+---
+- name: "Create the VG"
+  include_tasks: "cr_vg.yml"
+
+- name: "Creates the LVs"
+  include_tasks: "cr_lv.yml"

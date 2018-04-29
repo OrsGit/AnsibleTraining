@@ -1,0 +1,8 @@
+---
+- filesystem:
+    dev: "/dev/{{ item.0.vg_name }}/{{ item.1.lv_name }}"
+    fstype: "{{ item.1.file_system }}"
+  with_subelements:
+    - "{{ filesystem_create_lvs }}"
+    - "lvs"
+

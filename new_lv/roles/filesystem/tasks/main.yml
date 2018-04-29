@@ -1,0 +1,3 @@
+---
+- name: "Run the required flow"
+  include_tasks: "{{ filesystem_action | default('conf_all') }}.yml"

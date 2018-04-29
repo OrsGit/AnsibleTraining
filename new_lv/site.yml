@@ -1,0 +1,20 @@
+---
+- hosts: server2
+
+  vars:
+    filesystem_create_lvs:
+      - vg_name: michael-vg
+        disks: /dev/loop1,/dev/loop2,/dev/loop3
+        lvs:
+          - lv_name: lv1
+            size: 20%VG
+            file_system: xfs
+            mount_point: /dir1
+          - lv_name: lv2
+            size: 30%VG
+            file_system: ext3
+            mount_point: /dir2
+
+  roles:
+    - { role: filesystem, filesystem_action: 'conf_all' }
+
